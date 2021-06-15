@@ -1,4 +1,4 @@
-# Задача "Понимание JVM"
+﻿# Задача "Понимание JVM"
 
 
 ## Код для исследования
@@ -25,6 +25,6 @@ public class JvmComprehension {
 4. В Stack Memory создается фрейм printAll(,,). Во фрейме printAll(,,) создаются указатели o, ii соответственно указывающие на те же объекты что и o, ii во фрейме main(). Так же во фрейме printAll(,,) создается примитив вида int i = 1.
 5. В heap выделяется пямять под объект '700' класса Integer , во фрейме printAll(,,) создается указатель uselessVar на экземпляр '700'. 
 6. ClassLoader ищет класс System, и находит его на уровне Bootstrap ClassLoader. В Stack Memory создается фрейм System.out.println(). В heap выделяется память под объект "o.toString() + i + ii" класса String. Во фрейме System.out.println() создается указатель x на объект "o.toString() + i + ii".
-7. ClassLoader ищет класс System, и находит его на уровне Bootstrap ClassLoader. В Stack Memory создается фрейм System.out.println(). В heap выделяется память под объект "finished" класса String. Во фрейме System.out.println() создается указатель x на объект "finished".
+7. В Stack Memory создается фрейм System.out.println(). В heap выделяется память под объект "finished" класса String. Во фрейме System.out.println() создается указатель x на объект "finished".
 
 Во время выполнения данной программы, сборщик мусора проверяет, стоит ли удалять объект из heap. Если он не достижим в графе достижимости, и если памяти не хватает, то его удаляют в Stop The World паузе работы программы.
